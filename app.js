@@ -477,7 +477,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements that should animate on scroll
-    const animateElements = document.querySelectorAll('.stat-card, .skill-category, .project-card, .timeline__item, .award-card, .interest-item');
+    const animateElements = document.querySelectorAll('.stat-card, .skill-category, .project-card, .timeline__item, .award-card, .interest-item, .education-card, .certification-item');
     
     animateElements.forEach((el, index) => {
         el.classList.add('animate-on-scroll');
