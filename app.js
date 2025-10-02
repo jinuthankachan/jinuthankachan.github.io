@@ -466,10 +466,7 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
                 
-                // Add special animation for stat cards
-                if (entry.target.classList.contains('stat-card')) {
-                    animateStatCard(entry.target);
-                }
+                // Stat cards now animate without counter effect
             }
         });
     }, observerOptions);
@@ -532,34 +529,7 @@ function initTypewriterEffect() {
     return;
 }
 
-// Animate stat cards with counting effect
-function animateStatCard(card) {
-    const numberElement = card.querySelector('.stat-card__number');
-    if (!numberElement) return;
-    
-    const finalText = numberElement.textContent;
-    const hasPlus = finalText.includes('+');
-    const hasK = finalText.includes('k');
-    const numberValue = parseFloat(finalText.replace(/[^0-9.]/g, ''));
-    
-    if (isNaN(numberValue)) return;
-    
-    let currentValue = 0;
-    const increment = numberValue / 50; // 50 steps
-    const timer = setInterval(() => {
-        currentValue += increment;
-        if (currentValue >= numberValue) {
-            currentValue = numberValue;
-            clearInterval(timer);
-        }
-        
-        let displayValue = Math.floor(currentValue);
-        if (hasK) displayValue += 'k';
-        if (hasPlus) displayValue += '+';
-        
-        numberElement.textContent = displayValue;
-    }, 30);
-}
+// Counter animation removed - stat cards now display values instantly
 
 // Celebration effect for form submission
 function createCelebrationEffect() {
