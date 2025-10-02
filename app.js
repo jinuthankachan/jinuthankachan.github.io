@@ -434,10 +434,8 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 10);
+    // Animate in immediately
+    notification.style.transform = 'translateX(0)';
     
     // Remove after 5 seconds
     setTimeout(() => {
@@ -481,7 +479,6 @@ function initScrollAnimations() {
     
     animateElements.forEach((el, index) => {
         el.classList.add('animate-on-scroll');
-        el.style.setProperty('--delay', `${index * 0.1}s`);
         observer.observe(el);
     });
 }
@@ -497,9 +494,7 @@ function initSkillAnimations() {
             if (entry.isIntersecting) {
                 const skillTags = entry.target.querySelectorAll('.skill-tag');
                 skillTags.forEach((tag, index) => {
-                    setTimeout(() => {
-                        tag.classList.add('skill-animate');
-                    }, index * 100);
+                    tag.classList.add('skill-animate');
                 });
             }
         });
@@ -530,25 +525,11 @@ function initParallaxEffects() {
     });
 }
 
-// Typewriter effect for hero section
+// Typewriter effect for hero section (disabled for instant loading)
 function initTypewriterEffect() {
-    const heroTitle = document.querySelector('.hero__title');
-    if (!heroTitle) return;
-    
-    const originalText = heroTitle.textContent;
-    heroTitle.textContent = '';
-    
-    let i = 0;
-    const typeWriter = () => {
-        if (i < originalText.length) {
-            heroTitle.textContent += originalText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-        }
-    };
-    
-    // Start typewriter effect after page loads
-    setTimeout(typeWriter, 1000);
+    // Typewriter effect disabled for instant content loading
+    // The text will appear immediately without delay
+    return;
 }
 
 // Animate stat cards with counting effect
@@ -605,7 +586,7 @@ function createCelebrationEffect() {
             setTimeout(() => {
                 confetti.remove();
             }, 3000);
-        }, i * 50);
+        }, i * 5);
     }
 }
 

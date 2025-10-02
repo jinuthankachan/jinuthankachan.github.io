@@ -908,7 +908,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeInUp 0.8s ease-out;
   text-shadow: 0 0 30px rgba(var(--color-teal-300-rgb), 0.3);
 }
 
@@ -917,7 +916,6 @@ body {
   color: var(--color-teal-300);
   margin-bottom: var(--space-16);
   font-weight: var(--font-weight-semibold);
-  animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
 .hero__tagline {
@@ -926,20 +924,17 @@ body {
   margin-bottom: var(--space-32);
   max-width: 600px;
   line-height: var(--line-height-normal);
-  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .hero__actions {
   display: flex;
   gap: var(--space-16);
   margin-bottom: var(--space-32);
-  animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
 .hero__social {
   display: flex;
   gap: var(--space-16);
-  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .hero__social-link {
@@ -964,7 +959,6 @@ body {
 }
 
 .hero__image {
-  animation: fadeInUp 0.8s ease-out 0.5s both;
   display: flex;
   justify-content: center;
 }
@@ -1892,7 +1886,7 @@ body {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out var(--delay, 0s), transform 0.6s ease-out var(--delay, 0s);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .animate-on-scroll.animate-in {
